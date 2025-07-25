@@ -17,12 +17,12 @@ services:
       - static_volume:/backend_static
   frontend:
     env_file: .env
-    image: gasuaska/kittygram_final-gateway
+    image: gasuaska/kittygram_final-frontend
     volumes:
       - static_volume:/frontend_static
     command: cp -r /app/build/. /frontend_static/
   nginx:
-    image: gasuaska/kittygram_final-frontend
+    image: gasuaska/kittygram_final-gateway
     volumes:
       - static_volume:/staticfiles/
     ports:

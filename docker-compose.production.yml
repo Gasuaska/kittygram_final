@@ -18,13 +18,15 @@ services:
     volumes:
       - static:/backend_static
       - media:/app/media
+    depends_on:
+      - db
 
   frontend:
     env_file: .env
     image: gasuaska/kittygram_frontend
     volumes:
-      - static:/frontend_static
-    command: cp -r /app/build/. /frontend_static/
+      - static:/static
+    command: cp -r /app/build/. /static/
 
   gateway:
     image: gasuaska/kittygram_gateway
@@ -33,3 +35,7 @@ services:
       - media:/app/media
     ports:
       - 9000:80
+    depends_on:
+      - db
+      - backend
+      - frontend

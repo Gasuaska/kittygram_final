@@ -19,8 +19,8 @@ services:
     env_file: .env
     image: gasuaska/kittygram_frontend
     volumes:
-      - static:/frontend_static
-    command: cp -r /app/build/. /frontend_static/
+      - static:/staticfiles/
+    command: cp -r /app/build/. /staticfiles/
   gateway:
     image: gasuaska/kittygram_gateway
     volumes:

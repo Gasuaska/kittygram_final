@@ -24,7 +24,7 @@ services:
   gateway:
     image: gasuaska/kittygram_gateway
     volumes:
-      - static:/staticfiles
+      - static:/staticfiles/
       - media:/app/media
     ports:
       - 9000:80

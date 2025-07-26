@@ -19,12 +19,12 @@ services:
     env_file: .env
     image: gasuaska/kittygram_frontend
     volumes:
-      - static:/staticfiles/
-    command: cp -r /app/build/. /staticfiles/
+      - static:/frontend_static
+    command: cp -r /app/build/. /frontend_static/
   gateway:
     image: gasuaska/kittygram_gateway
     volumes:
-      - static:/staticfiles/
+      - static:/staticfiles
       - media:/app/media
     ports:
       - 9000:80

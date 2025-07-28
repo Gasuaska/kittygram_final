@@ -8,10 +8,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='some-fallback-secret')
 
 DEBUG = os.getenv('DEBUG', default=True) == True
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 'localhost',
-                 '84.201.176.175',
-                 'gasuaska-kittygram.zapto.org']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default=['127.0.0.1'])
 
 INSTALLED_APPS = [
     'django.contrib.admin',

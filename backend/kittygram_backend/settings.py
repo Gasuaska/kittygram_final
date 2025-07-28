@@ -8,7 +8,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='some-fallback-secret')
 
 DEBUG = os.getenv('DEBUG', default=True) == True
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default=['127.0.0.1'])
+ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', default='127.0.0.1')]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -96,7 +96,8 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/backend_static/static'
+STATIC_ROOT = BASE_DIR / 'collected_static'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/app/media'

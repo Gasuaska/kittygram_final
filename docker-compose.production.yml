@@ -26,10 +26,11 @@ services:
   gateway:
     image: gasuaska/kittygram_gateway
     volumes:
-      - static:/staticfiles
-      - media:/media
+      - static:/staticfiles/
+      - media:/media/
     depends_on:
       - backend
       - frontend
+    env_file: .env
     ports:
       - 9000:80

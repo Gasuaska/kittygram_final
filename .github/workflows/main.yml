@@ -113,7 +113,7 @@ jobs:
       - name: Push to DockerHub
         uses: docker/build-push-action@v4
         with:
-          context: ./gateway/
+          context: ./nginx/
           push: true
           tags: gasuaska/kittygram_gateway:latest
 
@@ -143,7 +143,7 @@ jobs:
         key: ${{ secrets.SECRET_SSH }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         script: |
-          cd taski
+          cd kittygram
           sudo docker compose -f docker-compose.production.yml pull
           sudo docker compose -f docker-compose.production.yml down
           sudo docker compose -f docker-compose.production.yml up -d
